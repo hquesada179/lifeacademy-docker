@@ -1,14 +1,15 @@
 <?php
+$host = "shuttle.proxy.rlwy.net";
+$port = 14636;
+$user = "root";
+$pass = "ctWaMGrsHHFspPZIxHWaiUzpnrUqMfev";
+$db   = "railway";
 
-$host = getenv("DB_HOST") ?: "localhost";
-$usuario = getenv("DB_USER") ?: "root";
-$contraseña = getenv("DB_PASS") ?: "";
-$bd = getenv("DB_NAME") ?: "lifeacademy_db";
-
-$conn = new mysqli($host, $usuario, $contraseña, $bd);
+$conn = new mysqli($host, $user, $pass, $db, $port);
 
 if ($conn->connect_error) {
-    die("Error de conexión: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
+//echo "Connected successfully"; // (opcional para probar)
 ?>
