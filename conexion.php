@@ -1,14 +1,14 @@
 <?php
-$servername = "localhost";
-$username = "root"; // usuario por defecto de XAMPP
-$password = ""; // sin contraseña
-$database = "lifeacademy_db";
 
-// Crear conexión
-$conn = new mysqli($servername, $username, $password, $database);
+$host = getenv("DB_HOST") ?: "localhost";
+$usuario = getenv("DB_USER") ?: "root";
+$contraseña = getenv("DB_PASS") ?: "";
+$bd = getenv("DB_NAME") ?: "lifeacademy_db";
 
-// Verificar conexión
+$conn = new mysqli($host, $usuario, $contraseña, $bd);
+
 if ($conn->connect_error) {
-    die("Error en la conexión: " . $conn->connect_error);
+    die("Error de conexión: " . $conn->connect_error);
 }
+
 ?>
